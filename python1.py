@@ -913,6 +913,7 @@
 # print(type(v1+v2))
 
 # Multiple Inheritance  -> a class inherits more than one base class
+# Diamond Shape Problem -> Sometimes Multiple inheritance creates confusion 
 # class employees:
 #     def __init__(self,name) :
 #         self.name = name
@@ -979,22 +980,70 @@
 # print(Dog.mro())  
 
 # Hierarchical inheritance
-class Animal:
-    def speak(self):
-        print("Animal speaks")
+# class Animal:
+#     def speak(self):
+#         print("Animal speaks")
 
-class Cat(Animal):
-    def meow(self):
-        print("Cat meows")
+# class Cat(Animal):
+#     def meow(self):
+#         print("Cat meows")
 
-class Dog(Animal):
-    def bark(self):
-        print("Dog barks")
+# class Dog(Animal):
+#     def bark(self):
+#         print("Dog barks")
 
-cat = Cat()
-dog = Dog()
+# cat = Cat()
+# dog = Dog()
 
-cat.speak()  
-dog.speak()  
-cat.meow()   
-dog.bark()   
+# cat.speak()  
+# dog.speak()  
+# cat.meow()   
+# dog.bark()   
+
+# Time module in Python
+# import time
+# def usingwhile():
+#     i = 0
+#     while i < 2000:
+#         i += 1
+#         print(i)
+# def usingfor():
+#     for i in range(2000):
+#         print(i)
+
+# init = time.time()
+# usingwhile()
+# t1 = time.time() - init
+# init = time.time()
+# usingfor()
+# print(t1)
+# print(time.time() - init)
+
+# print("Hello")
+# time.sleep(5)
+# print("This is after 5 seconds")
+
+# t = time.localtime()
+# formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", t)
+# print(formatted_time)
+
+
+# Difference between module, package and library
+#   Python Module: A module is a single Python file that contains Python code, including variables, functions, and classes. Modules are used to organize code into reusable files. They help in breaking down a large program into smaller, manageable units.You can import and use modules in other Python scripts using the import statement. 
+# Python Package:A package is a way of organizing related modules into a directory hierarchy. A package includes an __init__.py file (which can be empty) to indicate that the directory should be treated as a package.Packages provide a hierarchical structure for organizing modules. They help avoid naming conflicts and make it easier to manage and distribute code.
+# Python Library:A library, in a broad sense, refers to a collection of modules or packages that provide pre-written code and functionality to perform specific tasks. It can include a variety of modules and packages designed for different purposes.Python has a standard library that includes many modules and packages covering a wide range of functionalities, such as math, os, datetime, etc. 
+
+# Object introspection -> using dir(), typr() or id() --> These give details about the object
+# class emp:
+#     def show(self):
+#         print("Hello, I'm an employee")
+# e = emp()
+# o = "This is a string"
+# print(type(e))
+# print(id(e))
+# print(dir(e))
+# print(type(o))
+# print(id(o))
+# print(dir(o))
+# import inspect
+# print(inspect.getmembers(e))
