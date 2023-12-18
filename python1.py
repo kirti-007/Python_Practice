@@ -1065,7 +1065,7 @@
 
 # Shutil module
 # import shutil
-# shutil.copy("main.py", "main2.py")
+# shutil.copy("python2.py", "main2.py")
 # shutil.copy2("main.py", "main3.py")  #Copies the exact metadata also
 # shutil.copytree("src", "dest") #This is used to copy the complete folder
 # shutil.move("src", "dest")  # moves a file/folder one destination to another destination
