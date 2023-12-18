@@ -1047,3 +1047,246 @@
 # print(dir(o))
 # import inspect
 # print(inspect.getmembers(e))
+
+# Walrus operator  (:=)  --> Used to assign value to a variable within an expression
+# print(a := False)
+# Normal way
+# foods = []
+# while True:
+#     food = input("What food do you like? ")
+#     if food == "quit":
+#         break
+#     foods.append(food)
+# Using warlus operator
+# foods = []
+# while(food := input("What food do you like? ")) != "quit":
+#     foods.append(food)
+# print(foods)
+
+# Shutil module
+# import shutil
+# shutil.copy("main.py", "main2.py")
+# shutil.copy2("main.py", "main3.py")  #Copies the exact metadata also
+# shutil.copytree("src", "dest") #This is used to copy the complete folder
+# shutil.move("src", "dest")  # moves a file/folder one destination to another destination
+
+# Request module
+# import requests
+# response = requests.get("https://www.google.com/")
+# print(response)
+# print(response.text)
+# r = requests.get('https://api.github.com/events')
+# print(r.json())
+
+# payload = {'key1': 'value1', 'key2': 'value2'}
+# r = requests.post('https://httpbin.org/post', data=payload)
+# print(r.text)
+# print(r)
+# print(r.status_code)
+# print(r.headers)
+
+# from bs4 import BeautifulSoup
+# soup = BeautifulSoup(response.text, 'html.parser')
+# # print(soup.prettify())
+# for anchor in soup.find_all("a"):
+#     # print(anchor.text)
+#     print(anchor)
+
+# Generators  -> Concise and memory efficient, when required we use this
+
+# def simple_generator():
+#     yield 1       -> yield is used to generate 
+#     yield 2
+#     yield 3
+
+# for value in simple_generator():
+#     print(value)
+
+# def my_generator():
+#     for i in range(100):
+#         yield i
+# gen = my_generator()
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+# for j in gen:
+#     print(j)
+
+# def fibonacci_generator(limit):
+#     a, b = 0, 1
+#     while a <= limit:
+#         yield a
+#         a, b = b, a + b
+
+# for number in fibonacci_generator(21):
+#     print(number)
+
+# Function Caching
+# import time
+# import functools
+# @functools.lru_cache(maxsize= None)
+# from functools import lru_cache
+# @lru_cache(maxsize= None)  # maxsize=None means the cache can grow without bound
+# def fx(n):
+#     time.sleep(3)
+#     return n* 5
+
+# print(fx(20))
+# print("Done for 20")
+# print(fx(2))
+# print("Done for 2")
+# print(fx(55))
+# print("Done for 55")
+# # This will show directly without waiting because the value has already been stored in cache and when again required it will be fetched from cache
+# print(fx(20))
+# print("Done for 20")
+# print(fx(2))
+# print("Done for 2")
+# print(fx(55))
+# print("Done for 55")
+
+# @lru_cache(maxsize=None) 
+# def fibonacci(n):
+#     if n <= 1:
+#         return n
+#     else:
+#         return fibonacci(n-1) + fibonacci(n-2)
+
+# result = fibonacci(10)
+# print(result)
+
+# Regular expression
+# import re
+# result = re.match('abc', 'abcdef')
+# result = re.search('abc', 'abcdef')
+# print(result)
+# print(result.span)
+# print(result.span())
+
+# pattern = re.compile('(\d+)-(\w+)')
+# result = pattern.match('123-abc')
+# result = pattern.match('123--abc')  #pattern doesn't match
+# result = pattern.match('123-7bc')
+# result = pattern.match('123-456')
+# result = pattern.match('123-a_c')   
+# result = pattern.match('123-a-c')    #the group(2) is only 'a
+# result = pattern.match('1-23-abc')    #group(1) = 1, group(2) = 23
+# if result:
+#     print(result.group(1))  
+#     print(result.group(2)) 
+# else:
+#     print("Oops .. pattern not found") 
+
+# result = re.findall('\d+', 'There are 123 apples and 456 oranges.')
+# print(result)
+# print(type(result))
+# matches = re.finditer('\d+', 'There are 123 apples and 456 oranges.')
+# for match in matches:
+#     print(match.group())
+#     print(type(match.group()))
+# result1 = re.findall('\w+', 'There are 123 apples and 456 oranges.')
+# print(result1)
+
+# new_string = re.sub('\d+', 'X', 'There are 123 apples and 456 oranges.')  #Replacement occurs
+# print(new_string)
+
+# pattern = re.compile('\d')  # Matches any digit
+# result = pattern.findall('The price is $20.99')
+# print(result)
+# pattern = re.compile('[a-zA-Z]')  # Matches any uppercase or lowercase letter
+# result = pattern.findall('Hello World!')
+# print(result)
+# pattern = re.compile('\w')  # Matches any word character (alphanumeric + underscore)
+# result = pattern.findall('user_name123@example.com')
+# print(result)
+# pattern = re.compile('a{2,4}')  # Matches 'a' repeated 2 to 4 times
+# result = pattern.findall('aa abc aaaa aaaaaa')
+# print(result)
+# pattern = re.compile('ba*')  # Matches 'b' followed by zero or more 'a's
+# result = pattern.findall('b bat baat baaat')
+# print(result)
+# pattern = re.compile('ba+')  # Matches 'b' followed by one or more 'a's
+# result = pattern.findall('b bat baat baaat')
+# print(result)
+# pattern = re.compile('colou?r')  # Matches Zero or One Occurrence
+# result = pattern.findall('color colour')
+# print(result)
+
+# Asynchio
+# import asyncio
+# async def my_coroutine():
+#     print("Start")
+#     await asyncio.sleep(1)
+#     print("End")
+
+# asyncio.run(my_coroutine())
+
+# async def function1():
+#     print("Func1")
+#     await asyncio.sleep(2)
+#     print("Func1 Ends")
+# async def function2():
+#     print("Func2")
+#     await asyncio.sleep(1)
+#     print("Func2 Ends")
+# async def function3():
+#     print("Func3")
+#     await asyncio.sleep(3)
+#     print("Func3 Ends")
+# async def main():
+#     # await function1()
+#     # await function2()
+#     # await function3()
+#     # using gather(), all function starts execution parallelly
+#     l = await asyncio.gather(
+#         function1(),
+#         function2(),
+#         function3()
+#     )
+# asyncio.run(main())
+
+# Using asyncio with aiohttp for HTTP Requests
+# import aiohttp
+# import asyncio
+
+# async def fetch_data(url):
+#     async with aiohttp.ClientSession() as session:
+#         async with session.get(url) as response:
+#             return await response.text()
+
+# async def main():
+#     url = "https://jsonplaceholder.typicode.com/todos/1"
+#     data = await fetch_data(url)
+#     print(data)
+
+# asyncio.run(main())
+
+# Multithreading
+# import threading
+# import time
+
+# def func(seconds):
+#     print(f"Sleeping for {seconds} seconds")
+#     time.sleep(seconds)
+# # tim1 = time.perf_counter()
+# # func(4)
+# # func(2)
+# # func(1)
+# # tim2 = time.perf_counter()
+# # print(tim2 - tim1)
+
+# t1 = threading.Thread(target=func, args=[4])
+# t2 = threading.Thread(target=func, args=[2])
+# t3 = threading.Thread(target=func, args=[6])
+# tim1 = time.perf_counter()
+# t1.start()
+# t2.start()
+# t3.start()
+# tim2 = time.perf_counter()
+# print(tim2 - tim1)
+# t1.join()
+# t2.join()
+# t3.join()
+# tim2 = time.perf_counter()
+# print(tim2 - tim1)
+
