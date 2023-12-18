@@ -1290,3 +1290,75 @@
 # tim2 = time.perf_counter()
 # print(tim2 - tim1)
 
+# Concurrent futures
+# import time
+# import threading
+# from concurrent.futures import ThreadPoolExecutor
+
+# def func(seconds):
+#     print(f"Sleeping for {seconds} seconds")
+#     time.sleep(seconds)
+#     return seconds
+# def poolingdemo():
+#     with ThreadPoolExecutor() as executor:
+        # future1 = executor.submit(func,3)
+        # print(future1.result())
+        # future2 = executor.submit(func,2)
+        # print(future2.result())
+        # future3 = executor.submit(func,4)
+        # print(future3.result())
+        # using map
+#         l = [2, 5, 3, 4]
+#         results = executor.map(func, l)
+#         for result in results:
+#             print(result)
+# poolingdemo()
+
+# Multiprocessing
+# import multiprocessing
+# import concurrent.futures
+# import requests
+# def downloadfile(url, name):
+#     print("Started Downloading")
+#     response = requests.get(url)
+#     open(f"Files/file{name}.jpg", "wb").write(response.content)
+#     print(f"Downloading Finished{name}")
+
+# url = "https://picsum.photos/2000/3000"
+# pros = []
+# for i in range(5):
+#     # Normal process
+#     # downloadfile(url,i)
+#     # Using multiprocessing
+#     p = multiprocessing.Process(target=downloadfile, args=[url,i])
+#     p.start()
+#     pros.append(p)
+
+# for p in pros:
+#     p.join()
+
+# Using concurrent futures
+# with concurrent.futures.ProcessPoolExecutor() as executor:
+#     l1 = [url for i in range(5)]
+#     l2 = [i for i in range(5)]
+#     results = executor.map(downloadfile, l1, l2)
+#     for result in results:
+#         print(result)
+
+# Random module
+import random
+# random_number = random.random()  #generates a number between 0.0 to 1.0
+# random_integer = random.randint(1, 10) #[1,10]
+# print(random_integer)
+# items = ["apple", "banana", "orange", "grapes"]
+# random_item = random.choice(items)
+# print(random_item)
+# random.shuffle(items) #suffles the element sequences
+# random_sample = random.sample(items, 2)  #select 2 random items
+# print(random_sample)
+# random_float = random.uniform(2.5, 5.5)  #Gives random floating point number
+# print(random_float)
+# random.seed(42)  # If you use the same seed value, you'll get the same sequence of random numbers.
+# random_number = random.randrange(0, 100, 10)
+# print(random_number)
+
