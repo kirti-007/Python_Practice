@@ -426,8 +426,14 @@
 #     print(i, fruit)
 
 # OS module in python
-# import os           #Explore os module
+import os           
 # print(os.getcwd())
+# print(os.listdir())
+# new_directory = "new_directory"
+# os.mkdir(new_directory)
+# os.rmdir(new_directory)
+# os.chdir("..")
+# os.rename("file.txt", "myfile.txt")
 
 # Global and local variables
 # x = 10
