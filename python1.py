@@ -426,7 +426,7 @@
 #     print(i, fruit)
 
 # OS module in python
-import os           
+# import os           
 # print(os.getcwd())
 # print(os.listdir())
 # new_directory = "new_directory"
@@ -1352,7 +1352,7 @@ import os
 #         print(result)
 
 # Random module
-import random
+# import random
 # random_number = random.random()  #generates a number between 0.0 to 1.0
 # random_integer = random.randint(1, 10) #[1,10]
 # print(random_integer)
@@ -1367,4 +1367,63 @@ import random
 # random.seed(42)  # If you use the same seed value, you'll get the same sequence of random numbers.
 # random_number = random.randrange(0, 100, 10)
 # print(random_number)
+
+# Merging the pdfs
+# import os
+# from PyPDF2 import PdfWriter
+
+# merger = PdfWriter()
+# files = [file for file in os.listdir() if file.endswith('.pdf')]
+# for pdf in files:
+# for pdf in ["file1.pdf", "file2.pdf", "file3.pdf"]:
+#     merger.append(pdf)
+
+# merger.write("merged-pdf.pdf")
+# merger.close()
+
+# from PyPDF2 import PdfReader, PdfWriter
+
+# reader = PdfReader("BigFile.pdf")
+# writer = PdfWriter()
+
+# for page in reader.pages:
+#     writer.add_page(page)
+
+# writer.add_metadata(reader.metadata)
+
+# with open("smaller-new-file.pdf", "wb") as fp:
+#     writer.write(fp)
+
+# Text to speech in windows
+# import pyttsx3
+
+# def text_to_speech(text):
+#     # Initialize the text-to-speech engine
+#     engine = pyttsx3.init()
+
+#     engine.setProperty('rate', 220)  # Speed of speech
+#     engine.setProperty('volume', 1.0)  # Volume level (0.0 to 1.0)
+
+#     # Convert the given text to speech
+#     engine.say(text)
+
+#     # Wait for the speech to finish
+#     engine.runAndWait()
+
+# t = ["Mithu","Cute", "Noob" ]
+# for name in t:
+#         text_to_speech(f"Hello, {name}.")
+
+# News Api
+# import requests
+# import json
+# query = input("In which type of new are you interested ? ")
+# url = f"https://newsapi.org/v2/everything?q={query}&from=2023-11-19&sortBy=publishedAt&apiKey=621f75c1a1384e45bbdeb882b830b20c"
+# r = requests.get(url)
+# # print(r.text)
+# news = json.loads(r.text)
+# # print(news, type(news))  #type -> dictionary
+# for article in news["articles"]:
+#     print(f"\n {article['title']} \n")
+#     print(f"{article['description']} \n\n")
 
