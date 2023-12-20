@@ -1427,3 +1427,11 @@
 #     print(f"\n {article['title']} \n")
 #     print(f"{article['description']} \n\n")
 
+# Email validation using regex
+import re
+email_condition = "^[a-z]+[\._]?[a-z 0-9]+[@]\w+[.]\w{2,3}$"
+email = input("Enteer your email address: ")
+if re.search(email_condition, email):
+    print("Thank you for coming")
+else:
+    print("Please enter valid email address")
