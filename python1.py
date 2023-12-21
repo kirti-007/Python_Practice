@@ -1428,10 +1428,25 @@
 #     print(f"{article['description']} \n\n")
 
 # Email validation using regex
-import re
-email_condition = "^[a-z]+[\._]?[a-z 0-9]+[@]\w+[.]\w{2,3}$"
-email = input("Enteer your email address: ")
-if re.search(email_condition, email):
-    print("Thank you for coming")
-else:
-    print("Please enter valid email address")
+# import re
+# email_condition = "^[a-z]+[\._]?[a-z 0-9]+[@]\w+[.]\w{2,3}$"
+# email = input("Enteer your email address: ")
+# if re.search(email_condition, email):
+#     print("Thank you for coming")
+# else:
+#     print("Please enter valid email address")
+
+# Phone number details
+import phonenumbers
+from phonenumbers import geocoder, timezone, carrier
+Number = input("Enyter your phone number(+code): ")
+phone = phonenumbers.parse(Number)
+time = timezone.time_zones_for_number(phone)
+car = carrier.name_for_number(phone, "en")
+region = geocoder.description_for_number(phone, "en")
+p = phonenumbers.can_be_internationally_dialled(phone)
+
+if p == True:
+    print(f"Details about the phone number {phone.national_number} : from timezone {time} {car} of {region} can be Internationally dialled")
+else :
+    print(f"Details about the phone number {phone.national_number} : from timezone {time} {car} of {region} can't be Internationally dialled")
